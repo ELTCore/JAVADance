@@ -22,7 +22,15 @@ public class test04 {
             System.out.print(myList03[i] + " ");
         }
         // Aha...At least I don't have to worry about the length of the array
-        
+
+        // then I find another more simple way :D
+        // It seems called 'For-Each Cycle' or 'Enhanced Cycle'
+        // It can traverse groups without using subscripts
+        System.out.println("\n\nIn a new way:");
+        for (double element : myList03) {
+            System.out.print(element + " ");
+        }
+
         System.out.println("\nFinished.\n");
     }
 }
