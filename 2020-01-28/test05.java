@@ -41,5 +41,6 @@ public class test05 {
         int[] arr06 = new int[5]; // to request new memory space(like the way in C++)
         Arrays.fill(arr06, 2);
 
+        System.out.println("\nFinished\n");
     }
 }
