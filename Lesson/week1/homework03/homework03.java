@@ -15,14 +15,20 @@ public class homework03 {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the money: ");
         float money = sc.nextFloat();
-        money *= 100;
+        money = (int)(money*100);
         int d2 = (int) ((money / 200));
+        money -= d2*200;
         int d1 = (int) ((money % 200) / 100);
+        money -= d1*100;
         int c50 = (int) ((money % 100) / 50);
+        money -= c50*50;
         int c20 = (int) ((money % 50) / 20);
+        money -= c20*20;
         int c10 = (int) ((money % 20) / 10);
+        money -= c10*10;
         int c5 = (int) ((money % 10) / 5);
         System.out.printf("\nThe result:\n$2: %d \n$1: %d \n50c: %d \n20c: %d \n10c: %d\n5c: %d\n", d2, d1, c50, c20, c10, c5);
+        
         sc.close();
     }
 }

@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 // --------------------------------------------------------------------------------
 // You have several pictures of different sizes that you would like to frame. A
-// local picture framing store offers two types of frames – regular and fancy. The
+// local picture framing store offers two types of frames - regular and fancy. The
 // frames are available in white and can be ordered in any color the customer
 // desires. Suppose that each frame is 1 inch wide. The cost of coloring the
 // frame is $0.10 per inch. The cost of a regular frame is $0.15 per inch and the
@@ -36,7 +36,7 @@ public class homework04 {
         System.out.print("\nEnter the width: ");
         int width = sc.nextInt();
 
-        while (!(form.equals( "regular") || form.equals("fancy"))) {
+        while (!(form.equals("regular") || form.equals("fancy"))) {
             System.out.print("\nChoose a form(regular or fancy):");
             form = sc.next();
         }
