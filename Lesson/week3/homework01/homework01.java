@@ -16,14 +16,22 @@ import java.util.Scanner;
 public class homework01 {
     static Scanner sc = new Scanner(System.in);
 
+    // ====================MAIN====================
     public static void main(String[] args) {
+        System.out.println("date: 2020-02-22\n");
         Employee staffA = new Employee();
         Employee staffB = new Employee();
+
+        test(staffA, staffB);
+
+    }
+    // ====================MAIN====================
+
+    static void test(Employee staffA, Employee staffB) {
         Boolean stA = false;
         Boolean stB = false;
         int choose = 0;
 
-        System.out.println("date: 2020-02-22\n");
         do {
             msg();
             choose = sc.nextInt();
