@@ -1,3 +1,3 @@
 # JAVADance
  
-Used to document my JAVA learning career
+Used to document my JAVA learning experience
