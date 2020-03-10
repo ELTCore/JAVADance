@@ -51,10 +51,20 @@ public class homework03 {
                     outputTheSqures();
                     break;
                 case 5:
-                    outputTheSquresSum();
+                    if (ifTheNumExist == false) {
+                        System.out.println("\nPlease input the nums firstly.\n");
+                        break;
+                    } else {
+                        outputTheSquresSum();
+                    }
                     break;
                 case 6:
-                    outputTheUppercaseLetters();
+                    if (ifTheNumExist == false) {
+                        System.out.println("\nPlease input the nums firstly.\n");
+                        break;
+                    } else {
+                        outputTheUppercaseLetters();
+                    }
                     break;
                 case 0:
                     System.exit(1);
@@ -88,7 +98,7 @@ public class homework03 {
                 + "\n* 3. Output the sum of all the even numbers between firstNum and secondNum."
                 + "\n* 4. Output all the numbers and their squares between 1 and 10."
                 + "\n* 5. Output the sum of the squares of all the odd numbers between firstNum and secondNum."
-                + "\n* 6. Output all the uppercase letters." + "\n* 0. Exit"
+                + "\n* 6. Output all the uppercase letters between firstNum and secondNum." + "\n* 0. Exit"
                 + "\n----------------------------------------------------------------------"
                 + "\nEnter the function: ");
     }
@@ -150,9 +160,22 @@ public class homework03 {
 
     static void outputTheUppercaseLetters() {
         System.out.println("\n-=OUTPUT START=-\n");
-        int n = 65;
-        for (int i = 1; n <= 90; ++i, ++n) {
-            System.out.print((i % 5 == 0) ? ((char) n + "\n") : ((char) n + "\t"));
+
+        if (firstNum < 65) {
+            int n = 65;
+            for (int i = 1; n <= 90 && n <= secondNum; ++i, ++n) {
+
+                System.out.print((i % 5 == 0) ? ((char) n + "\n") : ((char) n + "\t"));
+            }
+        } else if (firstNum >= 65 && firstNum <= 90) {
+            int n = firstNum;
+            for (int i = 1; n <= 90 && n <= secondNum; ++i, ++n) {
+
+                System.out.print((i % 5 == 0) ? ((char) n + "\n") : ((char) n + "\t"));
+            }
+
+        } else {
+            // nothing happen
         }
         System.out.println("\n-=OUTPUT FINISHED=-\n");
     }

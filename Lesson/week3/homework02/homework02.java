@@ -14,18 +14,20 @@ import java.util.Scanner;
 // -------------------------------------------------------------------------------------
 
 public class homework02 {
-    static Scanner sc = new Scanner(System.in);
-
     // ====================MAIN====================
     public static void main(String[] args) {
         System.out.println("date: 2020-02-22\n");
         Student studentA = new Student();
         Student studentB = new Student();
 
-        test(studentA, studentB);
+        testDriver.test(studentA, studentB);
 
     }
     // ====================MAIN====================
+}
+
+class testDriver {
+    static Scanner sc = new Scanner(System.in);
 
     static void test(Student studentA, Student studentB) {
         Boolean stA = false;
@@ -47,13 +49,13 @@ public class homework02 {
                 case 3:
                     System.out.print("Enter A or B: ");
                     char ch = sc.next().charAt(0);
-                    if (ch == 'A') {
+                    if (ch == 'A' || ch == 'a') {
                         if (stA == false) {
                             System.out.println("\n -= NO DATA =-\n");
                         } else {
                             displayStudent(studentA);
                         }
-                    } else if (ch == 'B') {
+                    } else if (ch == 'B' || ch == 'b') {
                         if (stB == false) {
                             System.out.println("\n -= NO DATA =-\n");
                         } else {
