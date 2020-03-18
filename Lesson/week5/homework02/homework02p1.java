@@ -12,7 +12,7 @@ import java.util.Scanner;
 // Add an instance method named displayEmployee() that prints all these values.
 // -------------------------------------------------------------------------------------
 
-public class homework01 {
+public class homework02p1 {
     // ====================MAIN====================
 
     public static void main(String[] args) {
@@ -67,7 +67,7 @@ class Driver {
 
                 case 4:
                     changeChoose();
-                    updateSalary(eplyes[choose]);
+                    eplyes[choose].updateSalary();
                     break;
 
                 case 0:
@@ -141,11 +141,6 @@ class Driver {
         System.out.println("\n-= PRINT FINISHED =-\n");
     } // displayEmployee
 
-    static void updateSalary(Employee employee) {
-        employee.setBaseSalary(employee.getBaseSalary() * 1.0725);
-        System.out.println("\n-= UPDATE FINISHED =-\n");
-    }
-
 }// Driver
 
 class Employee {
@@ -156,14 +151,14 @@ class Employee {
     private double baseSalary = 0.00;
     private boolean ifSet = false;
 
-    public Employee(String eFirstName, String eLastName, String eEmployeeID, String eDepartment, double eBaseSalary,
-            boolean eIfSet) {
-        firstName = eFirstName;
-        lastName = eLastName;
-        employeeID = eEmployeeID;
-        department = eDepartment;
-        baseSalary = eBaseSalary;
-        ifSet = eIfSet;
+    public Employee(String firstName, String lastName, String employeeID, String department, double baseSalary,
+            boolean ifSet) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.employeeID = employeeID;
+        this.department = department;
+        this.baseSalary = baseSalary;
+        this.ifSet = ifSet;
     }
 
     public void defaultAll() {
@@ -173,6 +168,11 @@ class Employee {
         this.department = "NULL";
         this.baseSalary = 0.00;
         this.ifSet = false;
+    }
+
+    public void updateSalary() {
+        this.setBaseSalary(this.getBaseSalary() * 1.0725);
+        System.out.println("\n-= UPDATE FINISHED =-\n");
     }
 
     public String getFirstName() {
