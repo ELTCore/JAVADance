@@ -23,8 +23,12 @@ public class SubjectEnrolmentDriver {
 
 	}
 
-	static void msg() {
+	static void menu(){
+		
+	}
 
+	static void msg() {
+		System.out.println("\n");
 	}
 
 }
