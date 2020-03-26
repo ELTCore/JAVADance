@@ -3,7 +3,12 @@ package homework;
 public class Student {
     private String name = "NULL";
     private String ID = "NULL";
-    private boolean ifSet = false;
+
+    public Student(String ID, String name) {
+        super();
+        this.ID = ID;
+        this.name = name;
+    }
 
     public String getName() {
         return name;
@@ -21,12 +26,9 @@ public class Student {
         ID = iD;
     }
 
-    public boolean isIfSet() {
-        return ifSet;
-    }
-
-    public void setIfSet(boolean ifSet) {
-        this.ifSet = ifSet;
+    @Override
+    public String toString() {
+        return "Student [ID=" + ID + ", name=" + name + "]";
     }
 
 }
