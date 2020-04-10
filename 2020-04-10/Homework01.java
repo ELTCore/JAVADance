@@ -41,21 +41,53 @@ public class Homework01 {
     static ArrayList<Student> studentList = new ArrayList<Student>();
     static ArrayList<String> provinceList = new ArrayList<String>();
     static Scanner sc = new Scanner(System.in);
+    static int maleCount = 0;
 
     public static void main(String[] args) {
         System.out.println("date: 2020-04-10\n");
-        System.out.println(
-                "// Please enter the basic information of the students :\n// (one line for each student in the format of \"student number, name, gender, province\",\n// such as \"001, Zhang San, male, hubei\", when the input \"end\")\n\nEg:\n// --------------------\n// 001,ZhangShan,female,hubei\n// 002,LiYun,male,hubei\n// 003,WangYan,female,hunan\n// 004,LiuHua,male,beijing\n// 005,BiLi,male,guang♂door\n// 006,LiLi,female,beijing\n// end\n// --------------------\nInput:\n        ");
-        System.out.println(scan(sc.nextLine()));
+
+        char ch = 'n';
+        do {
+            String s = "";
+            System.out.println(
+                    "// Please enter the basic information of the students :\n// (one line for each student in the format of \"student number, name, gender, province\",\n// such as \"001, Zhang San, male, hubei\", when the input \"end\")\n\nEg:\n// --------------------\n// 001,ZhangShan,female,hubei\n// 002,LiYun,male,hubei\n// 003,WangYan,female,hunan\n// 004,LiuHua,male,beijing\n// 005,BiLi,male,guang♂door\n// 006,LiLi,female,beijing\n// end\n// --------------------\nInput:\n        ");
+            do {
+                s = sc.nextLine();
+                if (s.equals("end")) {
+                    break;
+                }
+                System.out.println(scan(s));
+
+            } while (true);
+
+            output();
+            maleCount = 0;
+            System.out.print("Again?(y/n):");
+            ch = sc.next().charAt(0);
+        } while (ch == 'y' || ch == 'Y');
+
+        sc.close();
     }
 
     static String scan(String s) {
-        String pattern = "^(\\w+),(\\w+),(\\w+),(\\w+)$";
+        String pattern = "^(\\d+),(\\w+),(\\w+),(\\w+)$";
         if (!(Pattern.matches(pattern, s))) {
             return ("\nFormat Error, Please Input Again.\n");
+
         } else {
+            studentList.add(new Student());
+            studentList.get(studentList.size() - 1).setStudentId(s.substring(0, s.indexOf(",")));
+            studentList.get(studentList.size() - 1).setName("Haiki");
+            studentList.get(studentList.size() - 1).setProvince("wuhan");
+            studentList.get(studentList.size() - 1).setSex("male");
             return ("\nInput Success\n");
         }
+    }
+
+    static void output() {
+        System.out.println("OUTPUT:");
+        System.out.println("Total number:\t" + studentList.size());
+        System.out.println("Male:\t");
     }
 
 }
