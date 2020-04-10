@@ -29,7 +29,7 @@ import java.util.regex.Pattern;
 // --------------------
 // The result is as follows:
 // Total number: 6
-// Male: 2, 33.3%; female: 4, 66.7%
+// Male: 2, 33.3%; Female: 4, 66.7%
 // Students from the following provinces:
 // Hubei: 2 (zhang shan, li yun)
 // Hunan: 1 person (wang yan)
@@ -75,11 +75,27 @@ public class Homework01 {
             return ("\nFormat Error, Please Input Again.\n");
 
         } else {
+            String id = s.substring(0, s.indexOf(","));
+            String name = s.substring(s.indexOf(",") + 1, s.indexOf(",", s.indexOf(",") + 1));
+            String sex = s.substring(s.indexOf(",", s.indexOf(",") + 1) + 1, s.indexOf(",", s.indexOf(",") + 2));
+            String province = s.substring(s.indexOf(",", s.indexOf(",") + 2) + 1);
+            if (!(sex.equals("male") || sex.equals("female"))) {
+                return ("\nSorry,Please input \"male\" or \"female\"\n");
+            } else {
+                if (sex.equals("male")) {
+                    ++maleCount;
+                }
+            }
+
+            if (provinceList.indexOf(province) == -1) {
+                provinceList.add(province);
+            }
+
             studentList.add(new Student());
-            studentList.get(studentList.size() - 1).setStudentId(s.substring(0, s.indexOf(",")));
-            studentList.get(studentList.size() - 1).setName("Haiki");
-            studentList.get(studentList.size() - 1).setProvince("wuhan");
-            studentList.get(studentList.size() - 1).setSex("male");
+            studentList.get(studentList.size() - 1).setStudentId(id);
+            studentList.get(studentList.size() - 1).setName(name);
+            studentList.get(studentList.size() - 1).setSex(sex);
+            studentList.get(studentList.size() - 1).setSex(province);
             return ("\nInput Success\n");
         }
     }
@@ -87,7 +103,11 @@ public class Homework01 {
     static void output() {
         System.out.println("OUTPUT:");
         System.out.println("Total number:\t" + studentList.size());
-        System.out.println("Male:\t");
+        System.out.println(
+                "Male:\t" + maleCount + "," + String.format("%.2f", ((maleCount / studentList.size()) * 100)) + "%");
+        System.out.println("Female:\t"
+                + String.format("%.2f", ((studentList.size() - maleCount) / studentList.size()) * 100) + "%");
+        System.out.println("Students from the following provinces:");
     }
 
 }
