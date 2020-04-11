@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -111,6 +112,9 @@ public class Homework01 {
                 + String.format("%.2f", (((double) studentList.size() - maleCount) / studentList.size()) * 100) + "%");
 
         System.out.println("Students from the following provinces:");
+        for (String string : provinceList) {
+            System.out.println(string);
+        }
     }
 
 }
