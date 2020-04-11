@@ -47,8 +47,8 @@ public class Homework01 {
         System.out.println("date: 2020-04-10\n");
 
         char ch = 'n';
+        String s = "";
         do {
-            String s = "";
             System.out.println(
                     "// Please enter the basic information of the students :\n// (one line for each student in the format of \"student number, name, gender, province\",\n// such as \"001, Zhang San, male, hubei\", when the input \"end\")\n\nEg:\n// --------------------\n// 001,ZhangShan,female,hubei\n// 002,LiYun,male,hubei\n// 003,WangYan,female,hunan\n// 004,LiuHua,male,beijing\n// 005,BiLi,male,guang♂door\n// 006,LiLi,female,beijing\n// end\n// --------------------\nInput:\n        ");
             do {
@@ -77,8 +77,9 @@ public class Homework01 {
         } else {
             String id = s.substring(0, s.indexOf(","));
             String name = s.substring(s.indexOf(",") + 1, s.indexOf(",", s.indexOf(",") + 1));
-            String sex = s.substring(s.indexOf(",", s.indexOf(",") + 1) + 1, s.indexOf(",", s.indexOf(",") + 2));
-            String province = s.substring(s.indexOf(",", s.indexOf(",") + 2) + 1);
+            String sex = s.substring(s.indexOf(",", s.indexOf(",") + 1) + 1,
+                    s.indexOf(",", s.indexOf(",", s.indexOf(",") + 1) + 1));
+            String province = s.substring(s.indexOf(",", s.indexOf(",", s.indexOf(",", s.indexOf(",") + 1) + 1)));
             if (!(sex.equals("male") || sex.equals("female"))) {
                 return ("\nSorry,Please input \"male\" or \"female\"\n");
             } else {
@@ -103,10 +104,12 @@ public class Homework01 {
     static void output() {
         System.out.println("OUTPUT:");
         System.out.println("Total number:\t" + studentList.size());
-        System.out.println(
-                "Male:\t" + maleCount + "," + String.format("%.2f", ((maleCount / studentList.size()) * 100)) + "%");
-        System.out.println("Female:\t"
-                + String.format("%.2f", ((studentList.size() - maleCount) / studentList.size()) * 100) + "%");
+        System.out.println("Male:\t" + maleCount + ","
+                + String.format("%.2f", (((double) maleCount / studentList.size()) * 100)) + "%");
+
+        System.out.println("Female:\t" + (studentList.size() - maleCount) + ","
+                + String.format("%.2f", (((double) studentList.size() - maleCount) / studentList.size()) * 100) + "%");
+
         System.out.println("Students from the following provinces:");
     }
 
