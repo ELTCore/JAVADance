@@ -3,6 +3,8 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
+import org.graalvm.compiler.asm.aarch64.AArch64Assembler.SystemHint;
+
 // -------------------------------------------------------------------------------------
 // Write a Java program, input several student information from the keyboard,
 // solve the number of all students, the number of male students,
@@ -80,7 +82,7 @@ public class Homework01 {
             String name = s.substring(s.indexOf(",") + 1, s.indexOf(",", s.indexOf(",") + 1));
             String sex = s.substring(s.indexOf(",", s.indexOf(",") + 1) + 1,
                     s.indexOf(",", s.indexOf(",", s.indexOf(",") + 1) + 1));
-            String province = s.substring(s.indexOf(",", s.indexOf(",", s.indexOf(",", s.indexOf(",") + 1) + 1)));
+            String province = s.substring(s.indexOf(",", s.indexOf(",", s.indexOf(",", s.indexOf(",") + 1) + 1)) + 1);
             if (!(sex.equals("male") || sex.equals("female"))) {
                 return ("\nSorry,Please input \"male\" or \"female\"\n");
             } else {
@@ -112,8 +114,20 @@ public class Homework01 {
                 + String.format("%.2f", (((double) studentList.size() - maleCount) / studentList.size()) * 100) + "%");
 
         System.out.println("Students from the following provinces:");
-        for (String string : provinceList) {
-            System.out.println(string);
+        for (int i = 0; i < provinceList.size(); ++i) {
+            StringBuilder provinceTemp = new StringBuilder("");
+            int count = 0;
+            System.out.print(provinceList.get(i) + ": ");
+            for (int j = 0; j < studentList.size(); ++j) {
+                if (studentList.get(j).getProvince().equals(provinceList.get(i))) {
+                    // String s = studentList.get(j).getName;
+                    provinceTemp.append((count == 0) ? ("000") : ("," + "000"));
+                    count++;
+                }
+            }
+            System.out.println(count + "(" + provinceTemp + ")");
+            count = 0;
+            provinceTemp = new StringBuilder("");
         }
     }
 
