@@ -108,12 +108,13 @@ public class Homework02 {
             String name = s.substring(s.indexOf(",") + 1, s.indexOf(",", s.indexOf(",") + 1));
             String sex = s.substring(s.indexOf(",", s.indexOf(",", s.indexOf(",") + 1) + 1));
 
-            if (sex.equals("Male") || sex.equals("Female")) {
+            if (sex.equals("male") || sex.equals("female")) {
                 return ("\nSorry, please input again.\n");
             }
-
-            
-
+            studentList.add(new Student());
+            studentList.get(studentList.size() - 1).setStudentId(studentId);
+            studentList.get(studentList.size() - 1).setName(name);
+            studentList.get(studentList.size() - 1).setSex(sex);
 
             return ("\nFormat Error, Please Input Again.\n");
 
@@ -130,16 +131,43 @@ public class Homework02 {
             return ("\nFormat Error, Please Input Again.\n");
 
         } else {
-            return ("\nInput Success\n");
+            String studentId = s.substring(0, s.indexOf(","));
+            boolean ifFound = false;
+
+            for (int i = 0; i < studentList.size(); ++i) {
+                if (studentList.get(i).getStudentId().equals(studentId)) {
+                    String tempCourseName = s.substring(s.indexOf(",") + 1, s.indexOf(",", s.indexOf(",") + 1));
+                    double tempCourseScore = (Double.parseDouble(s.substring(s.indexOf(",", s.indexOf(",") + 1) + 1)));
+
+                    courseList.add(tempCourseName);
+
+                    studentList.get(i).setScoreList(
+                            studentList.get(i).getScoreList().add(new Score(tempCourseName, tempCourseName)));
+
+                    ifFound = true;
+                    break;
+                }
+            }
+            if (ifFound == false) {
+                return ("\nCan not find the student,please input again.");
+            } else {
+                return ("\nInput Success\n");
+            }
+
         }
 
     }
 
 }
 
-class score {
+class Score {
     private String name = "";
     private double score = 0.00;
+
+    public Score(String name, double score) {
+        this.name = name;
+        this.score = score;
+    }
 
     public String getName() {
         return name;
@@ -156,6 +184,7 @@ class score {
     public void setScore(double score) {
         this.score = score;
     }
+
 }
 
 class Student {
@@ -163,7 +192,7 @@ class Student {
     private String name = "NULL";
     private String sex = "NULL";
 
-    private ArrayList<score> scoreList = new ArrayList<score>();
+    private ArrayList<Score> scoreList = new ArrayList<Score>();
 
     public String getStudentId() {
         return studentId;
