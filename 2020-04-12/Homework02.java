@@ -104,6 +104,17 @@ public class Homework02 {
     static String scanStudent(String s) {
         String pattern = "^(\\d+),(\\w+),(\\w+)$";
         if (!(Pattern.matches(pattern, s))) {
+            String studentId = s.substring(0, s.indexOf(","));
+            String name = s.substring(s.indexOf(",") + 1, s.indexOf(",", s.indexOf(",") + 1));
+            String sex = s.substring(s.indexOf(",", s.indexOf(",", s.indexOf(",") + 1) + 1));
+
+            if (sex.equals("Male") || sex.equals("Female")) {
+                return ("\nSorry, please input again.\n");
+            }
+
+            
+
+
             return ("\nFormat Error, Please Input Again.\n");
 
         } else {

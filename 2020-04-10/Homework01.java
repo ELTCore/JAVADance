@@ -1,9 +1,6 @@
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
-
-import org.graalvm.compiler.asm.aarch64.AArch64Assembler.SystemHint;
 
 // -------------------------------------------------------------------------------------
 // Write a Java program, input several student information from the keyboard,
