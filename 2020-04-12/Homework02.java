@@ -57,6 +57,7 @@ public class Homework02 {
     static Scanner sc = new Scanner(System.in);
     static ArrayList<Student> studentList = new ArrayList<Student>();
     static ArrayList<String> courseList = new ArrayList<String>();
+    static ArrayList<Score> scoreList = new ArrayList<Score>();
 
     public static void main(String[] args) {
         System.out.println("date: 2020-04-12\n");
@@ -97,28 +98,24 @@ public class Homework02 {
         sc.close();
     }
 
-    static void output() {
-
-    }
-
     static String scanStudent(String s) {
         String pattern = "^(\\d+),(\\w+),(\\w+)$";
         if (!(Pattern.matches(pattern, s))) {
+            return ("\nFormat Error, Please Input Again.\n");
+
+        } else {
             String studentId = s.substring(0, s.indexOf(","));
             String name = s.substring(s.indexOf(",") + 1, s.indexOf(",", s.indexOf(",") + 1));
-            String sex = s.substring(s.indexOf(",", s.indexOf(",", s.indexOf(",") + 1) + 1));
+            String sex = s.substring(s.indexOf(",", s.indexOf(",") + 1) + 1);
 
-            if (sex.equals("male") || sex.equals("female")) {
-                return ("\nSorry, please input again.\n");
+            if (!(sex.equals("male") || sex.equals("female"))) {
+                return ("\nSorry, please input \"male\" or \"female\".\n");
             }
             studentList.add(new Student());
             studentList.get(studentList.size() - 1).setStudentId(studentId);
             studentList.get(studentList.size() - 1).setName(name);
             studentList.get(studentList.size() - 1).setSex(sex);
 
-            return ("\nFormat Error, Please Input Again.\n");
-
-        } else {
             return ("\nInput Success\n");
         }
 
@@ -136,13 +133,12 @@ public class Homework02 {
 
             for (int i = 0; i < studentList.size(); ++i) {
                 if (studentList.get(i).getStudentId().equals(studentId)) {
-                    String tempCourseName = s.substring(s.indexOf(",") + 1, s.indexOf(",", s.indexOf(",") + 1));
-                    double tempCourseScore = (Double.parseDouble(s.substring(s.indexOf(",", s.indexOf(",") + 1) + 1)));
+                    String courseName = s.substring(s.indexOf(",") + 1, s.indexOf(",", s.indexOf(",") + 1));
+                    double score = (Double.parseDouble(s.substring(s.indexOf(",", s.indexOf(",") + 1) + 1)));
 
-                    courseList.add(tempCourseName);
+                    courseList.add(courseName);
 
-                    studentList.get(i).setScoreList(
-                            studentList.get(i).getScoreList().add(new Score(tempCourseName, tempCourseName)));
+                    scoreList.add(new Score(courseName, score, studentId));
 
                     ifFound = true;
                     break;
@@ -158,24 +154,54 @@ public class Homework02 {
 
     }
 
+    static void output() {
+        System.out.println("\nOUTPUT:\n");
+        System.out.println("By students:");
+        System.out.println("studentId\t\tname\t\t\tgender\t\taverageScore");
+        for (int i = 0; i < studentList.size(); ++i) {
+            String studentId = studentList.get(i).getStudentId();
+            String name = studentList.get(i).getName();
+            String gender = studentList.get(i).getSex();
+            double averageScore = 0.0;
+            int count = 0;
+
+            for (int j = 0; j < scoreList.size(); ++j) {
+                if (scoreList.get(j).getStudentId().equals(studentList.get(i).getStudentId())) {
+                    averageScore += scoreList.get(j).getScore();
+                    ++count;
+                }
+            }
+            if (count != 0) {
+                averageScore /= count;
+            }
+            System.out.println(
+                    studentId + "\t\t\t" + name + "\t\t" + gender + "\t\t" + String.format("%.2f", averageScore));
+        }
+        System.out.println("\nBy course:");
+        System.out.println("course\t\taverageScore");
+        for (int i = 0; i < courseList.size(); ++i) {
+            String courseName = courseList.get(i);
+            double averageScore = 0.0;
+            int count = 0;
+            for (int j = 0; j < scoreList.size(); ++j) {
+                if (courseName.equals(scoreList.get(j).getCourseName())) {
+                    averageScore += scoreList.get(j).getScore();
+                    ++count;
+                }
+            }
+            if (count != 0) {
+                averageScore /= count;
+            }
+            System.out.println(courseName + "\t\t\t" + averageScore);
+        }
+    }
+
 }
 
 class Score {
-    private String name = "";
-    private double score = 0.00;
-
-    public Score(String name, double score) {
-        this.name = name;
-        this.score = score;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+    private String courseName = "NULL";
+    private double score = 0.0;
+    private String studentId = "NULL";
 
     public double getScore() {
         return score;
@@ -185,14 +211,34 @@ class Score {
         this.score = score;
     }
 
+    public String getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
+    }
+
+    public String getCourseName() {
+        return courseName;
+    }
+
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
+    }
+
+    public Score(String courseName, double score, String studentId) {
+        this.courseName = courseName;
+        this.score = score;
+        this.studentId = studentId;
+    }
+
 }
 
 class Student {
     private String studentId = "NULL";
     private String name = "NULL";
     private String sex = "NULL";
-
-    private ArrayList<Score> scoreList = new ArrayList<Score>();
 
     public String getStudentId() {
         return studentId;
@@ -218,11 +264,4 @@ class Student {
         this.sex = sex;
     }
 
-    public ArrayList<score> getScoreList() {
-        return scoreList;
-    }
-
-    public void setScoreList(ArrayList<score> scoreList) {
-        this.scoreList = scoreList;
-    }
 }
