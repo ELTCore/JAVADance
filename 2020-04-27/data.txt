@@ -1,0 +1,17 @@
+studentId name gender province birthday grade
+
+----------------------------------------------------------------
+
+1001 XiaoWang Male Hubei 1998-11-12 90
+
+1002 XiaoLiu Female Beijing 1997-01-12 60.5
+
+1003 XiaoZhang Female Hunan 1997-11-01 86
+
+1004 WangYan Male Guangdong 1998-11-14 55
+
+1005 LiuHua Female Yunnan 1998-09-12 76
+
+1006 LiHua Male Guizhou 1998-07-12 92
+
+1007 ZhangYan Female Hubei 1998-10-12 66

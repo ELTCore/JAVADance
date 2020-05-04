@@ -1,0 +1,6 @@
+add(23,45)
+sub(44,12)
+muti(3,5)
+div(54,9)
+doubleMe(5)
+add(sub(44,12),doubleMe(5))
