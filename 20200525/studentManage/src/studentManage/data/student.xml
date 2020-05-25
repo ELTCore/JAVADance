@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+	<student>
+		<id>1001</id>
+		<studentName>小王</studentName>
+		<gender>男</gender>
+		<courceName>网络</courceName>
+		<score>90</score>
+	</student>
+	<student>
+		<id>1001</id>
+		<studentName>小王</studentName>
+		<gender>男</gender>
+		<courceName>C</courceName>
+		<score>90</score>
+	</student>
+	<student>
+		<id>1001</id>
+		<studentName>小王</studentName>
+		<gender>男</gender>
+		<courceName>Java</courceName>
+		<score>88</score>
+	</student>
+</data>
