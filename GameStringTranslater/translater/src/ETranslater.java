@@ -17,7 +17,7 @@ public class ETranslater {
 
     public static void main(String[] args) throws IOException {
         int t = JOptionPane.showConfirmDialog(null,
-                "说明:\n请确认该程序所在目录下存在oldEn.txt、oldCn.txt、newEn.txt三份文件后再继续\n启动后程序将在后台自动合并文本并在完成通知你\n是否继续",
+                "说明:\n请确认该程序所在目录下存在oldEn.txt、oldCn.txt、newEn.txt三份文件后再继续\n启动后程序将在后台自动合并文本并在完成后通知你\n合并后的文本文件TranslaterOutput.txt会放在程序当前目录\n点击\"是\"后程序开始运行",
                 "SC2Translater", 0);
 
         if (t == JOptionPane.YES_OPTION) {
@@ -146,7 +146,7 @@ class FileTools {
         // 读取文件
         File file = new File(".\\" + path);
         if (!file.exists()) {
-            JOptionPane.showMessageDialog(null, "当前目录下缺少文件:" + path, "SC2Translater", 1);
+            JOptionPane.showMessageDialog(null, "当前目录下缺少文件:" + path, "SC2Translater", 0);
             System.exit(0);
         }
 
@@ -179,12 +179,12 @@ class FileTools {
             sb.append(s.getSign() + "=" + s.getText() + "\r\n");
         }
 
-        File file = new File(".\\output.txt");
+        File file = new File(".\\TranslaterOutput.txt");
 
         if (!file.exists()) {
             file.createNewFile();
         }
-        FileWriter fw = new FileWriter(".\\output.txt", Charset.forName("utf-8"));
+        FileWriter fw = new FileWriter(".\\TranslaterOutput.txt", Charset.forName("utf-8"));
         // FileWriter fw = new FileWriter(".\\output.txt");
 
         PrintWriter pw = new PrintWriter(fw);
