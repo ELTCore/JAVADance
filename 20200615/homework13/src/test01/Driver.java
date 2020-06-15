@@ -11,7 +11,7 @@
 // n 输入学生各项信息，保存到数据库
 // n 输入学生学号，查询显示该学号学生的所有记录
 
-package homework13;
+package test01;
 
 import java.sql.*;
 import java.util.Scanner;
