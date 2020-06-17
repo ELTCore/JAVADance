@@ -1,14 +1,14 @@
 package curriculumDesign.vo;
 
-public class OderForm {
+public class Order {
 	private String time;
 	private String randomNumber;
 
-	public OderForm() {
+	public Order() {
 		super();
 	}
 
-	public OderForm(String time, String randomNumber) {
+	public Order(String time, String randomNumber) {
 		super();
 		this.time = time;
 		this.randomNumber = randomNumber;
