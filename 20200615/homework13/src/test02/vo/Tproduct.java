@@ -1,16 +1,16 @@
 package test02.vo;
 
-public class tproduct {
+public class Tproduct {
 	private String barCode;
 	private String productName;
 	private float price;
 	private String supply;
 
-	public tproduct() {
+	public Tproduct() {
 		super();
 	}
 
-	public tproduct(String barCode, String productName, float price, String supply) {
+	public Tproduct(String barCode, String productName, float price, String supply) {
 		super();
 		this.barCode = barCode;
 		this.productName = productName;

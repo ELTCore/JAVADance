@@ -1,16 +1,16 @@
 package test02.vo;
 
-public class tuser {
+public class Tuser {
 	private String userName;
 	private String password;
 	private String chrName;
 	private String role;
 
-	public tuser() {
+	public Tuser() {
 		super();
 	}
 
-	public tuser(String userName, String password, String chrName, String role) {
+	public Tuser(String userName, String password, String chrName, String role) {
 		super();
 		this.userName = userName;
 		this.password = password;

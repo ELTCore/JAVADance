@@ -1,6 +1,6 @@
 package test02.vo;
 
-public class tsaledetail {
+public class Tsaledetail {
 	private String lsh;
 	private String barCode;
 	private String productName;
@@ -9,11 +9,11 @@ public class tsaledetail {
 	private String operator;
 	private String saleTime;
 	
-	public tsaledetail() {
+	public Tsaledetail() {
 		super();
 	}
 
-	public tsaledetail(String lsh, String barCode, String productName, float price, int count, String operator,
+	public Tsaledetail(String lsh, String barCode, String productName, float price, int count, String operator,
 			String saleTime) {
 		super();
 		this.lsh = lsh;
