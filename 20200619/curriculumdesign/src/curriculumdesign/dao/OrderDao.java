@@ -107,7 +107,7 @@ public class OrderDao {
 		String randInt = String.format("%03d", tempInt);
 
 		Date date = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");
 
 		String orderNumber = sdf.format(date) + randInt;
 
