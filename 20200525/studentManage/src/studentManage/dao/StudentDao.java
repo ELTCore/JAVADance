@@ -32,11 +32,11 @@ import jxl.write.Label;
 import jxl.write.WritableSheet;
 import jxl.write.WritableWorkbook;
 
-//·â×°¶ÔStudent¶ÔÏóµÄ¸÷Àà²Ù×÷£¬Ò»¸ö²Ù×÷¶ÔÓ¦Ò»¸ö·½·¨
+//å°è£…å¯¹Studentå¯¹è±¡çš„å„ç±»æ“ä½œï¼Œä¸€ä¸ªæ“ä½œå¯¹åº”ä¸€ä¸ªæ–¹æ³•
 public class StudentDao {
 
 	/**
-	 * ´ÓtxtÎÄ¼şÖĞ¶ÁÈ¡Êı¾İ£¬´´½¨¶ÔÏó£¬½«¶ÔÏó´æ·ÅÓÚ¼¯ºÏÖĞ£¬ Ôö¼Óµ½¼¯ºÏÊ±ĞèÒª¼ì²é¶ÔÏóµÄidºÍcourceNameÊÇ·ñÓë¼¯ºÏÖĞµÄ¶ÔÏóÖØ¸´£¬Èç¹ûÖØ¸´£¬Ôò²»Ôö¼Ó
+	 * ä»txtæ–‡ä»¶ä¸­è¯»å–æ•°æ®ï¼Œåˆ›å»ºå¯¹è±¡ï¼Œå°†å¯¹è±¡å­˜æ”¾äºé›†åˆä¸­ï¼Œ å¢åŠ åˆ°é›†åˆæ—¶éœ€è¦æ£€æŸ¥å¯¹è±¡çš„idå’ŒcourceNameæ˜¯å¦ä¸é›†åˆä¸­çš„å¯¹è±¡é‡å¤ï¼Œå¦‚æœé‡å¤ï¼Œåˆ™ä¸å¢åŠ 
 	 */
 
 	public ArrayList<Student> loadDataFromTxt(String fileName, ArrayList<Student> studentList) throws Exception {
@@ -58,14 +58,14 @@ public class StudentDao {
 
 		br.close();
 		fr.close();
-		System.out.println("³É¹¦µ¼Èë" + count + "¸öÊı¾İ£¡");
+		System.out.println("æˆåŠŸå¯¼å…¥" + count + "ä¸ªæ•°æ®ï¼");
 		displayStudent(studentList);
 		return studentList;
 
 	}
 
 	/**
-	 * ´ÓXLSÎÄ¼şÖĞ¶ÁÈ¡Êı¾İ£¬´´½¨¶ÔÏó£¬½«¶ÔÏó´æ·ÅÓÚ¼¯ºÏÖĞ£¬ Ôö¼Óµ½¼¯ºÏÊ±ĞèÒª¼ì²é¶ÔÏóµÄidºÍcourceNameÊÇ·ñÓë¼¯ºÏÖĞµÄ¶ÔÏóÖØ¸´£¬Èç¹ûÖØ¸´£¬Ôò²»Ôö¼Ó
+	 * ä»XLSæ–‡ä»¶ä¸­è¯»å–æ•°æ®ï¼Œåˆ›å»ºå¯¹è±¡ï¼Œå°†å¯¹è±¡å­˜æ”¾äºé›†åˆä¸­ï¼Œ å¢åŠ åˆ°é›†åˆæ—¶éœ€è¦æ£€æŸ¥å¯¹è±¡çš„idå’ŒcourceNameæ˜¯å¦ä¸é›†åˆä¸­çš„å¯¹è±¡é‡å¤ï¼Œå¦‚æœé‡å¤ï¼Œåˆ™ä¸å¢åŠ 
 	 */
 	public ArrayList<Student> loadDataFromXLS(String fileName, ArrayList<Student> studentList) throws Exception {
 
@@ -87,7 +87,7 @@ public class StudentDao {
 
 		}
 		workbook.close();
-		System.out.println("³É¹¦µ¼Èë" + count + "¸öÊı¾İ£¡");
+		System.out.println("æˆåŠŸå¯¼å…¥" + count + "ä¸ªæ•°æ®ï¼");
 		displayStudent(studentList);
 
 		return studentList;
@@ -95,7 +95,7 @@ public class StudentDao {
 	}
 
 	/**
-	 * ´ÓXMLÎÄ¼şÖĞ¶ÁÈ¡Êı¾İ£¬´´½¨¶ÔÏó£¬½«¶ÔÏó´æ·ÅÓÚ¼¯ºÏÖĞ£¬ Ôö¼Óµ½¼¯ºÏÊ±ĞèÒª¼ì²é¶ÔÏóµÄidºÍcourceNameÊÇ·ñÓë¼¯ºÏÖĞµÄ¶ÔÏóÖØ¸´£¬Èç¹ûÖØ¸´£¬Ôò²»Ôö¼Ó
+	 * ä»XMLæ–‡ä»¶ä¸­è¯»å–æ•°æ®ï¼Œåˆ›å»ºå¯¹è±¡ï¼Œå°†å¯¹è±¡å­˜æ”¾äºé›†åˆä¸­ï¼Œ å¢åŠ åˆ°é›†åˆæ—¶éœ€è¦æ£€æŸ¥å¯¹è±¡çš„idå’ŒcourceNameæ˜¯å¦ä¸é›†åˆä¸­çš„å¯¹è±¡é‡å¤ï¼Œå¦‚æœé‡å¤ï¼Œåˆ™ä¸å¢åŠ 
 	 */
 	public ArrayList<Student> loadDataFromXML(String fileName, ArrayList<Student> studentList) throws Exception {
 		SAXReader reader = new SAXReader();
@@ -116,7 +116,7 @@ public class StudentDao {
 			}
 		}
 
-		System.out.println("³É¹¦µ¼Èë" + count + "¸öÊı¾İ£¡");
+		System.out.println("æˆåŠŸå¯¼å…¥" + count + "ä¸ªæ•°æ®ï¼");
 		displayStudent(studentList);
 
 		return studentList;
@@ -124,13 +124,13 @@ public class StudentDao {
 	}
 
 	/**
-	 * ´ÓJSONÎÄ¼şÖĞ¶ÁÈ¡Êı¾İ£¬´´½¨¶ÔÏó£¬½«¶ÔÏó´æ·ÅÓÚ¼¯ºÏÖĞ£¬ Ôö¼Óµ½¼¯ºÏÊ±ĞèÒª¼ì²é¶ÔÏóµÄidºÍcourceNameÊÇ·ñÓë¼¯ºÏÖĞµÄ¶ÔÏóÖØ¸´£¬Èç¹ûÖØ¸´£¬Ôò²»Ôö¼Ó
+	 * ä»JSONæ–‡ä»¶ä¸­è¯»å–æ•°æ®ï¼Œåˆ›å»ºå¯¹è±¡ï¼Œå°†å¯¹è±¡å­˜æ”¾äºé›†åˆä¸­ï¼Œ å¢åŠ åˆ°é›†åˆæ—¶éœ€è¦æ£€æŸ¥å¯¹è±¡çš„idå’ŒcourceNameæ˜¯å¦ä¸é›†åˆä¸­çš„å¯¹è±¡é‡å¤ï¼Œå¦‚æœé‡å¤ï¼Œåˆ™ä¸å¢åŠ 
 	 */
 	public ArrayList<Student> loadDataFromJson(String fileName, ArrayList<Student> studentList) throws Exception {
 
 		/**
-		 * Çë×¢ÒâÎÄ¼şµÄ±àÂëÀàĞÍ£¬Ä¬ÈÏÒÔANSI±àÂë´ò¿ª£¬Èç¹ûÎÄ¼şÖĞÓĞºº×Ö£¬ÎÄ¼ş±àÂëÊÇÆäËû±àÂëÀàĞÍ£¨Èçutf-8£©£¬Ö±½Ó´ò¿ª»á³öÏÖºº×Ö´ò¿ªÂÒÂë£¬
-		 * ´ËÊ±±ØĞëÊ¹ÓÃ×ª»»Á÷£¬Ö¸¶¨±àÂëÀàĞÍ
+		 * è¯·æ³¨æ„æ–‡ä»¶çš„ç¼–ç ç±»å‹ï¼Œé»˜è®¤ä»¥ANSIç¼–ç æ‰“å¼€ï¼Œå¦‚æœæ–‡ä»¶ä¸­æœ‰æ±‰å­—ï¼Œæ–‡ä»¶ç¼–ç æ˜¯å…¶ä»–ç¼–ç ç±»å‹ï¼ˆå¦‚utf-8ï¼‰ï¼Œç›´æ¥æ‰“å¼€ä¼šå‡ºç°æ±‰å­—æ‰“å¼€ä¹±ç ï¼Œ
+		 * æ­¤æ—¶å¿…é¡»ä½¿ç”¨è½¬æ¢æµï¼ŒæŒ‡å®šç¼–ç ç±»å‹
 		 */
 		BufferedReader br = new BufferedReader(new FileReader(new File(fileName)));
 		// BufferedReader br = new
@@ -167,7 +167,7 @@ public class StudentDao {
 			}
 		}
 
-		System.out.println("³É¹¦µ¼Èë" + count + "¸öÊı¾İ£¡");
+		System.out.println("æˆåŠŸå¯¼å…¥" + count + "ä¸ªæ•°æ®ï¼");
 		displayStudent(studentList);
 
 		return studentList;
@@ -175,18 +175,18 @@ public class StudentDao {
 	}
 
 	/**
-	 * Í¨¹ı¼üÅÌÊäÈëÊı¾İ£¬´´½¨¶ÔÏó£¬½«¶ÔÏó´æ·ÅÓÚ¼¯ºÏÖĞ£¬ Ôö¼Óµ½¼¯ºÏÊ±ĞèÒª¼ì²é¶ÔÏóµÄidºÍcourceNameÊÇ·ñÓë¼¯ºÏÖĞµÄ¶ÔÏóÖØ¸´£¬Èç¹ûÖØ¸´£¬Ôò²»Ôö¼Ó
+	 * é€šè¿‡é”®ç›˜è¾“å…¥æ•°æ®ï¼Œåˆ›å»ºå¯¹è±¡ï¼Œå°†å¯¹è±¡å­˜æ”¾äºé›†åˆä¸­ï¼Œ å¢åŠ åˆ°é›†åˆæ—¶éœ€è¦æ£€æŸ¥å¯¹è±¡çš„idå’ŒcourceNameæ˜¯å¦ä¸é›†åˆä¸­çš„å¯¹è±¡é‡å¤ï¼Œå¦‚æœé‡å¤ï¼Œåˆ™ä¸å¢åŠ 
 	 */
 	public ArrayList<Student> loadDataFromKeyboard(ArrayList<Student> studentList) {
-		System.out.println("ÇëÊäÈëÑ§ÉúĞÅÏ¢(¸÷×Ö¶Î¼äÒÔtab¼ü·Ö¸ô£¬Èç10001	Ğ¡ÕÅ	ÄĞ	ÍøÂçÔ­Àí	90)£º");
+		System.out.println("è¯·è¾“å…¥å­¦ç”Ÿä¿¡æ¯(å„å­—æ®µé—´ä»¥tabé”®åˆ†éš”ï¼Œå¦‚10001	å°å¼ 	ç”·	ç½‘ç»œåŸç†	90)ï¼š");
 		Scanner scan = new Scanner(System.in);
 		String aLine = scan.nextLine();
 		Student student = new Student(aLine);
 		if (!checkStudentExist(student, studentList)) {
 			studentList.add(student);
-			System.out.println("³É¹¦Ôö¼Ó");
+			System.out.println("æˆåŠŸå¢åŠ ");
 		} else {
-			System.out.println("idºÍ¿Î³ÌÃûÒÑ´æÔÚ£¬Ôö¼ÓÊ§°Ü£¡");
+			System.out.println("idå’Œè¯¾ç¨‹åå·²å­˜åœ¨ï¼Œå¢åŠ å¤±è´¥ï¼");
 		}
 
 		displayStudent(studentList);
@@ -195,9 +195,9 @@ public class StudentDao {
 
 	}
 
-	// °´Ñ§ºÅ²éÑ¯ÏÔÊ¾ËùÓĞ¿Î³ÌµÄ³É¼¨
+	// æŒ‰å­¦å·æŸ¥è¯¢æ˜¾ç¤ºæ‰€æœ‰è¯¾ç¨‹çš„æˆç»©
 	public void getScoreById(ArrayList<Student> studentList) {
-		System.out.println("ÇëÊäÈë´ı²éÑ¯µÄÑ§ÉúÑ§ºÅ£º");
+		System.out.println("è¯·è¾“å…¥å¾…æŸ¥è¯¢çš„å­¦ç”Ÿå­¦å·ï¼š");
 		Scanner scan = new Scanner(System.in);
 		String id = scan.nextLine();
 
@@ -210,14 +210,14 @@ public class StudentDao {
 		}
 
 		if (findList.size() == 0) {
-			System.out.println("Ã»²éµ½¸ÃidµÄ³É¼¨£¡");
+			System.out.println("æ²¡æŸ¥åˆ°è¯¥idçš„æˆç»©ï¼");
 		} else {
 			displayStudent(findList);
 		}
 
 	}
 
-	// Ğ´Èëµ½txtÎÄ¼ş
+	// å†™å…¥åˆ°txtæ–‡ä»¶
 	public void writeToTxt(String fileName, ArrayList<Student> studentList) throws Exception {
 		ArrayList<Score> scoreList = scoreStatics(studentList);
 
@@ -227,32 +227,32 @@ public class StudentDao {
 		// PrintWriter pw=new PrintWriter(new OutputStreamWriter(new
 		// FileOutputStream(file),"utf-8"));
 
-		pw.println("Ñ§ºÅ\tĞÕÃû\tĞÔ±ğ\t×Ü·Ö\tÆ½¾ù·Ö");
+		pw.println("å­¦å·\tå§“å\tæ€§åˆ«\tæ€»åˆ†\tå¹³å‡åˆ†");
 		pw.println("===============================");
 		for (Score score : scoreList) {
 			pw.println(score.toString());
 		}
 
-		System.out.println("Ğ´ÈëTXTÎÄ¼ş³É¹¦£¡");
+		System.out.println("å†™å…¥TXTæ–‡ä»¶æˆåŠŸï¼");
 
 		pw.close();
 	}
 
-	// Ğ´Èëµ½XLSÎÄ¼ş
+	// å†™å…¥åˆ°XLSæ–‡ä»¶
 	public void writeToXLS(String fileName, ArrayList<Student> studentList) throws Exception {
 		ArrayList<Score> scoreList = scoreStatics(studentList);
 
 		WritableWorkbook workbook = Workbook.createWorkbook(new File(fileName));
-		WritableSheet sheet = workbook.createSheet("³É¼¨Í³¼Æ", 0);
-		String title[] = { "Ñ§ºÅ", "ĞÕÃû", "ĞÔ±ğ", "×Ü³É¼¨", "Æ½¾ù·Ö" };
+		WritableSheet sheet = workbook.createSheet("æˆç»©ç»Ÿè®¡", 0);
+		String title[] = { "å­¦å·", "å§“å", "æ€§åˆ«", "æ€»æˆç»©", "å¹³å‡åˆ†" };
 
 		Label label = null;
-		// µÚÒ»ĞĞ±êÌâ
+		// ç¬¬ä¸€è¡Œæ ‡é¢˜
 		for (int i = 0; i < title.length; i++) {
 			label = new Label(i, 0, title[i]);
 			sheet.addCell(label);
 		}
-		// ´ÓµÚ¶şĞĞ¿ªÊ¼Ğ´Êı¾İ
+		// ä»ç¬¬äºŒè¡Œå¼€å§‹å†™æ•°æ®
 		for (int i = 1; i <= scoreList.size(); i++) {
 			Score score = scoreList.get(i - 1);
 
@@ -275,16 +275,16 @@ public class StudentDao {
 		workbook.write();
 		workbook.close();
 
-		System.out.println("Ğ´ÈëXLSÎÄ¼ş³É¹¦£¡");
+		System.out.println("å†™å…¥XLSæ–‡ä»¶æˆåŠŸï¼");
 
 	}
 
-	// Ğ´Èëµ½XMLÎÄ¼ş
+	// å†™å…¥åˆ°XMLæ–‡ä»¶
 	public void writeToXML(String fileName, ArrayList<Student> studentList) throws Exception {
 		ArrayList<Score> scoreList = scoreStatics(studentList);
 
 		Document document = DocumentHelper.createDocument();
-		Element root = document.addElement("data");// ´´½¨¸ù½Úµã
+		Element root = document.addElement("data");// åˆ›å»ºæ ¹èŠ‚ç‚¹
 
 		for (Score score : scoreList) {
 			Element scoreElement = root.addElement("student");
@@ -297,7 +297,7 @@ public class StudentDao {
 		}
 
 		OutputFormat format = OutputFormat.createPrettyPrint();
-		format.setEncoding("utf-8"); // Ö¸¶¨XMLÎÄµµÉêÃ÷´¦µÄ±àÂë
+		format.setEncoding("utf-8"); // æŒ‡å®šXMLæ–‡æ¡£ç”³æ˜å¤„çš„ç¼–ç 
 		XMLWriter writer = new XMLWriter(new OutputStreamWriter(new FileOutputStream(new File(fileName)), "utf-8"),
 				format);
 
@@ -305,11 +305,11 @@ public class StudentDao {
 		writer.write(document);
 		writer.close();
 
-		System.out.println("Ğ´ÈëXMLÎÄ¼ş³É¹¦£¡");
+		System.out.println("å†™å…¥XMLæ–‡ä»¶æˆåŠŸï¼");
 
 	}
 
-	//// Ğ´Èëµ½JSONÎÄ¼ş
+	//// å†™å…¥åˆ°JSONæ–‡ä»¶
 	public void writeToJson(String fileName, ArrayList<Student> studentList) throws Exception {
 
 		String jsonStr = (new Gson()).toJson(studentList);
@@ -320,12 +320,12 @@ public class StudentDao {
 
 		pw.close();
 
-		System.out.println("Ğ´ÈëJSONÎÄ¼ş³É¹¦£¡");
+		System.out.println("å†™å…¥JSONæ–‡ä»¶æˆåŠŸï¼");
 
 	}
 
 	/**
-	 * ¼ì²é¸ø¶¨¶ÔÏóµÄidÓëcourceNameÊÇ·ñÓë¼¯ºÏÖĞµÄ¶ÔÏóÖØ¸´
+	 * æ£€æŸ¥ç»™å®šå¯¹è±¡çš„idä¸courceNameæ˜¯å¦ä¸é›†åˆä¸­çš„å¯¹è±¡é‡å¤
 	 */
 	public boolean checkStudentExist(Student student, ArrayList<Student> studentList) {
 		boolean result = false;
@@ -338,21 +338,21 @@ public class StudentDao {
 		return result;
 	}
 
-	// Çó½âÃ¿¸öÑ§ÉúµÄ×Ü·Ö¼°Æ½¾ù·Ö£¬´æ·ÅÓÚ¼¯ºÏÖĞ
+	// æ±‚è§£æ¯ä¸ªå­¦ç”Ÿçš„æ€»åˆ†åŠå¹³å‡åˆ†ï¼Œå­˜æ”¾äºé›†åˆä¸­
 	public ArrayList<Score> scoreStatics(ArrayList<Student> studentList) {
 		ArrayList<Score> scoreList = new ArrayList<Score>();
 		for (Student student : studentList) {
 			String id = student.getId();
 
 			int index = existInScoreList(scoreList, id);
-			// ¸ÃidÔÚ½á¹û¼¯ºÏÖĞ´æÔÚ,ÔòĞŞ¸Ä¼¯ºÏÖĞÏàÓ¦µÄ¶ÔÏó
+			// è¯¥idåœ¨ç»“æœé›†åˆä¸­å­˜åœ¨,åˆ™ä¿®æ”¹é›†åˆä¸­ç›¸åº”çš„å¯¹è±¡
 			if (index != -1) {
 				Score score = scoreList.get(index);
-				score.setCount(score.getCount() + 1); // ¿Î³ÌÃÅÊı¼Ó1
-				score.setTotalScore(score.getTotalScore() + student.getScore()); // ×Ü·ÖÀÛ¼Ó
+				score.setCount(score.getCount() + 1); // è¯¾ç¨‹é—¨æ•°åŠ 1
+				score.setTotalScore(score.getTotalScore() + student.getScore()); // æ€»åˆ†ç´¯åŠ 
 				score.setAverage(score.getTotalScore() / score.getCount());
-				scoreList.set(index, score); // ĞŞ¸Ä½á¹û¼¯ºÏÖĞ¸Ã¶ÔÏó
-			} else { // ²»´æÔÚ£¬Ôö¼Óµ½½á¹û¼¯ºÏÖĞ
+				scoreList.set(index, score); // ä¿®æ”¹ç»“æœé›†åˆä¸­è¯¥å¯¹è±¡
+			} else { // ä¸å­˜åœ¨ï¼Œå¢åŠ åˆ°ç»“æœé›†åˆä¸­
 				Score score = new Score(student.getId(), student.getStudentName(), student.getGender(),
 						student.getScore(), 1, student.getScore());
 
@@ -363,7 +363,7 @@ public class StudentDao {
 		return scoreList;
 	}
 
-	// ÔÚscoreListÖĞ²éÑ¯Ö¸¶¨idµÄ¶ÔÏó£¬·µ»Ø¸Ã¶ÔÏóÔÚ¼¯ºÏÖĞµÄÎ»ÖÃ£¬Èç·µ»ØÎª-1£¬Ôò±íÊ¾Î´ÕÒµ½
+	// åœ¨scoreListä¸­æŸ¥è¯¢æŒ‡å®šidçš„å¯¹è±¡ï¼Œè¿”å›è¯¥å¯¹è±¡åœ¨é›†åˆä¸­çš„ä½ç½®ï¼Œå¦‚è¿”å›ä¸º-1ï¼Œåˆ™è¡¨ç¤ºæœªæ‰¾åˆ°
 	public int existInScoreList(ArrayList<Score> scoreList, String id) {
 		int index = -1;
 		for (int i = 0; i < scoreList.size(); i++) {
@@ -378,12 +378,12 @@ public class StudentDao {
 	}
 
 	/**
-	 * Êä³ö¼¯ºÏÖĞµÄÊı¾İ
+	 * è¾“å‡ºé›†åˆä¸­çš„æ•°æ®
 	 * 
 	 * @param studentList
 	 */
 	public void displayStudent(ArrayList<Student> studentList) {
-		System.out.println("Ñ§ºÅ\tĞÕÃû\tĞÔ±ğ\t¿Î³Ì\t³É¼¨");
+		System.out.println("å­¦å·\tå§“å\tæ€§åˆ«\tè¯¾ç¨‹\tæˆç»©");
 		System.out.println("===================================");
 		for (Student student : studentList) {
 			System.out.println(student.toString());
