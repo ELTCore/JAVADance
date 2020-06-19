@@ -52,7 +52,7 @@ public class Driver {
 					continue;
 				}
 				orderDao.outputJPGList(orderList);
-				System.out.println("\n制作完毕，相关文件已经生成在了程序所在目录下.");
+				System.out.println("\n制作完毕，相关文件已经生成");
 				if (f3 == false)
 					f3 = true;
 				break;
@@ -71,7 +71,7 @@ public class Driver {
 					continue;
 				}
 				orderDao.outputPDFList(orderList);
-				System.out.println("\n制作完毕，相关文件已经生成在了程序所在目录下.");
+				System.out.println("\n制作完毕，相关文件已经生成");
 				break;
 
 			case 5:
@@ -79,7 +79,7 @@ public class Driver {
 				orderDao.barCodeListCreate(orderList);
 				orderDao.outputJPGList(orderList);
 				orderDao.outputPDFList(orderList);
-				System.out.println("\n制作完毕，相关文件已经生成在了程序所在目录下.");
+				System.out.println("\n制作完毕，相关文件已经生成");
 				break;
 
 			case 0:

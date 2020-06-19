@@ -198,7 +198,9 @@ public class OrderDao {
 			temp = 590;
 			g.drawString("收件人: " + order.getReceiverName(), 14, temp);
 			temp += 14;
-			g.drawString("地址: " + order.getReceiverAdress(), 14, temp);
+			g.drawString("地址: ", 14, temp);
+			temp += 14;
+			g.drawString(order.getReceiverAdress(), 14, temp);
 
 			// 在背景图片上添加二维码图片
 			g.drawImage(barCode, 70, 340, barCode.getWidth(), barCode.getHeight(), null);
@@ -220,8 +222,8 @@ public class OrderDao {
 
 	public void outputJPGList(ArrayList<Order> orderList) {
 		for (Order ord : orderList) {
-			overlapImage(Global.classPath + Global.JPG_BASICNAME, Global.classPath + ord.getEmsNumber() + ".png", "./",
-					ord);
+			overlapImage(Global.classPath + Global.JPG_BASICNAME, Global.classPath + ord.getEmsNumber() + ".png",
+					Global.classPath + "./", ord);
 			System.out.println("JPGCompelte");
 		}
 	}
@@ -230,10 +232,10 @@ public class OrderDao {
 
 		ArrayList<String> imageUrlList = new ArrayList<String>();
 
-		String pdfUrl = "./PDF.pdf";
+		String pdfUrl = Global.classPath + "PDF.pdf";
 
 		for (Order ord : orderList) {
-			imageUrlList.add(ord.getEmsNumber() + ".jpg");
+			imageUrlList.add(Global.classPath + ord.getEmsNumber() + ".jpg");
 		}
 		File file = PDFManage.Pdf(imageUrlList, pdfUrl);
 		try {
